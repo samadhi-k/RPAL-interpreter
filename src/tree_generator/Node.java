@@ -2,14 +2,14 @@ package tree_generator;
 
 import java.util.ArrayList;
 
-class Node {
+public class Node {
 	
 	private ArrayList<Node> children = new ArrayList<>();
 	private Node parent;
 	private String content;
 	private int depth;
 	
-	Node( String content, Node parent, int depth) {
+	public Node( String content, Node parent, int depth) {
 		this.content = content;
 		this.parent = parent;
 		this.depth = depth;
@@ -19,11 +19,11 @@ class Node {
 	
 	//Getters and Setters 
 	
-	public ArrayList<Node> getNextNodes() {
+	public ArrayList<Node> getChildren() {
 		return children;
 	}
 	
-	public void setNextNodes(ArrayList<Node> nextNodes) {
+	public void setChildren(ArrayList<Node> nextNodes) {
 		this.children = nextNodes;
 	}
 	
