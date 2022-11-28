@@ -2,7 +2,7 @@ package tree_generator;
 
 import java.util.ArrayList;
 
-public class Node {
+public class Node{
 	
 	private ArrayList<Node> children = new ArrayList<>();
 	private Node parent;
@@ -56,7 +56,12 @@ public class Node {
 	public void addChild( Node child ) {
 		this.children.add(child);
 	}
-
+	
+	public void removeChildren() {
+		this.children.clear();
+	}
+	
+	
 	
 	
 	
