@@ -9,13 +9,42 @@ public class Node{
 	private String content;
 	private int depth;
 	
+	//used only for lambda
+	private int index = 0;
+	private String var= null;
+	private int ce = 0;
+	
+	//used only for tau
+	private int len;
+	
+	//used for conditional 
+	private int conditionIndex;
+	
+	
 	public Node( String content, Node parent, int depth) {
 		this.content = content;
 		this.parent = parent;
 		this.depth = depth;
-		this.children = new ArrayList<>();
-			
+		this.children = new ArrayList<>();		
 	}
+	
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	public String getVar() {
+		return var;
+	}
+
+	public void setVar(String var) {
+		this.var = var;
+	}
+
+	
 	
 	//Getters and Setters 
 	
@@ -53,15 +82,39 @@ public class Node{
 
 	//add children to nodes
 	
+	public int getLen() {
+		return len;
+	}
+
+	public void setLen(int len) {
+		this.len = len;
+	}
+
 	public void addChild( Node child ) {
 		this.children.add(child);
 	}
 	
-	public void removeChildren() {
-		this.children.clear();
+	public void addChildtoPosition(Node child, int position) {
+		this.children.set(position, child);
+	}
+
+	public int getCe() {
+		return ce;
+	}
+
+	public void setCe(int ce) {
+		this.ce = ce;
+	}
+
+	public int getConditionIndex() {
+		return conditionIndex;
+	}
+
+	public void setConditionIndex(int conditionIndex) {
+		this.conditionIndex = conditionIndex;
 	}
 	
-	
+
 	
 	
 	

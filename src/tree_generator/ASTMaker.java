@@ -1,16 +1,12 @@
 package tree_generator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ASTMaker {
 	
-	public static ASTree buildTree() {
+	public static ASTree buildTree(ArrayList<String> ast) {
 		
-		ArrayList<String> ast = readFromFile();
-		String head_content = ast.get(0);
+		String head_content = ast.get(0).strip();
 		Node root = new Node(head_content, null, 0);
 		
 		ASTree astree = new ASTree(root);
@@ -20,7 +16,7 @@ public class ASTMaker {
 		//iterate over the array from file
 		for (int i = 1; i < ast.size(); i++) {
 			
-			String str = ast.get(i);
+			String str = ast.get(i).strip();
 			
 			//iterate over a string to find the depth using '.' count
 			int depth_in_array = 0;
@@ -42,14 +38,9 @@ public class ASTMaker {
 		}
 		
 		
-		System.out.println(astree);
+		
 		return astree;
 		
-	}
-	
-	
-	public static void main(String[] args) {
-		ASTree x = buildTree();
 	}
 	
 	private static Boolean insertNewNode( Node current_node, Node new_node) {
@@ -69,24 +60,5 @@ public class ASTMaker {
 		return false;	
 	}
 	
-	private static ArrayList<String> readFromFile(){
-		
-		try {
-			File inputFile = new File("C:\\Users\\Samadhi\\eclipse-workspace\\RPAL interpreter\\src\\main\\input.txt");
-			Scanner reader = new Scanner(inputFile);
-			ArrayList<String> ast = new ArrayList<>();
-			while(reader.hasNextLine()) {
-				ast.add(reader.nextLine());
-			}
-			System.out.println(ast);
-			reader.close();
-			return ast;
-			
-		} catch (FileNotFoundException e) {
-			System.out.println(e);
-			
-		}
-		return null;
-		
-	}
+	
 }
